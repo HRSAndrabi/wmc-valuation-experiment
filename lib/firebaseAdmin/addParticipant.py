@@ -78,7 +78,8 @@ def batch_register_participants(num_participants:int):
 	"""
 	participants = []
 	for i in range(0, num_participants):
-		email = f"{1000+i}@cbmm.com"
+		username = f"cbmm-{1000+i}"
+		email = f"{username}@cbmm.com"
 		password = "".join(secrets.choice(
 			"ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 		) for i in range(8))
@@ -91,7 +92,7 @@ def batch_register_participants(num_participants:int):
 		)
 		participants.append({
 			"id": user.uid,
-			"email": email,
+			"username": username,
 			"password": password,
 		})
 	output_path = "lib/firebaseAdmin/participant_logins.json"
