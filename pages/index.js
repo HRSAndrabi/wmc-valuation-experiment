@@ -79,39 +79,54 @@ export default function Home() {
                     <p>
                         This task assesses the accuracy with which you can
                         recall short lists of exclusive number-colour pairings.
+                        Each trial within this task consists of two phases: the{" "}
+                        <b>binding phase</b>, and the <b>recall phase</b>. You
+                        will complete 24 trials of this task in total.
+                    </p>
+                    <h3>Binding phase</h3>
+                    <p>
+                        During the binding phase, you will be successively
+                        presented with a series of number-colour pairings.{" "}
+                        <b>
+                            Your task is to remember these pairings as best you
+                            can.
+                        </b>{" "}
                     </p>
                     <p>
-                        Over a number of trials, you will be successively
-                        presented with a series of number-colour pairings that
-                        you will be asked to remember. Three example pairings
-                        are shown below (red: 5, blue: 1, green: 9).
+                        We will vary the difficulty of trials by increasing or
+                        decreasing the number of presented pairings.
                     </p>
+                    <div className="text-xs font-light pb-1">
+                        Binding phase: example presentation of number-colour
+                        pairing
+                    </div>
                     <div
                         className="flex gap-5 justify-center p-5 border border-slate-200
 						rounded-lg"
                     >
-                        <div className="flex flex-col gap-2 items-center">
+                        <div className="flex flex-col gap-2 items-center justify-center min-h-[5rem]">
                             <div className="w-5 h-5 bg-red-600"></div>
                             <div>5</div>
                         </div>
-                        <div className="flex flex-col gap-2 items-center">
-                            <div className="w-5 h-5 bg-blue-600"></div>
-                            <div>1</div>
-                        </div>
-                        <div className="flex flex-col gap-2 items-center">
-                            <div className="w-5 h-5 bg-green-600"></div>
-                            <div>9</div>
-                        </div>
                     </div>
+                    <h3>Recall phase</h3>
                     <p>
-                        Thereafter, you will be presented with a series of
-                        multiple-choice questions to test whether you have
-                        remembered the pairings. An example question is
-                        presented below.
+                        After all pairings in a given trial have been presented,
+                        you will begin the recall phase. You will be
+                        successively presented with a series of multiple-choice
+                        tests that probe your recollection of the observed
+                        pairings.{" "}
+                        <b>
+                            Your task is to recall the previously observed
+                            pairings as best you can.
+                        </b>{" "}
                     </p>
+                    <div className="text-xs font-light pb-1">
+                        Recall phase: example multiple-choice question
+                    </div>
                     <div
                         className="flex flex-col gap-5 items-center border border-slate-200 
-						rounded-lg p-5"
+						rounded-lg p-5 justify-center min-h-[5rem] text-xs"
                     >
                         <div className="font-light italic">
                             Select the number paired with the colour shown
@@ -164,9 +179,12 @@ export default function Home() {
                             </label>
                         </div>
                     </div>
+                    <h3>Performance</h3>
                     <p>
                         Your performance will depend on the number of pairs you
-                        can accurately recall.
+                        can accurately recall. Your payment for this task will
+                        be calculated as your average accuracy across all trials
+                        multiplied by $20.
                     </p>
                 </>
             ),
@@ -188,10 +206,10 @@ export default function Home() {
             ),
         },
         {
-            name: "6. Questions",
+            name: "6. Begin experiment",
             content: (
                 <>
-                    <h2>Questions</h2>
+                    <h2>Begin experiment</h2>
                 </>
             ),
         },
