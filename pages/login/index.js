@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../lib/firebase/auth";
 import { useEffect } from "react";
+import { PulseLoader } from "react-spinners";
 
 export default function Login() {
     const auth = useAuth();
@@ -95,9 +96,22 @@ export default function Login() {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white text-sm rounded-lg py-2 font-semibold mt-3 mb-5"
+                            className="w-full bg-blue-600 text-white text-sm rounded-lg py-2 font-semibold 
+                            mt-3 mb-5 disabled:cursor-not-allowed disabled:bg-blue-700"
+                            disabled={auth.loading}
                         >
-                            Sign in
+                            {auth.loading ? (
+                                <PulseLoader
+                                    color="white"
+                                    loading={true}
+                                    size={5}
+                                    aria-label="Loading Spinner"
+                                    data-testid="loader"
+                                    speedMultiplier={0.9}
+                                />
+                            ) : (
+                                "Sign in"
+                            )}
                         </button>
                     </form>
                 </div>
