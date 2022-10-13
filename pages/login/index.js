@@ -37,6 +37,7 @@ export default function Login() {
                     </div>
                     <form
                         className="w-full"
+                        spellcheck="false"
                         onSubmit={handleSubmit(submitHandler)}
                     >
                         <div className="flex flex-col gap-5 w-full text-slate-800 mb-3">
