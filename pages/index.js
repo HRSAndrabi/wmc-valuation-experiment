@@ -10,6 +10,7 @@ import {
     MdPlayCircle,
     MdLock,
 } from "react-icons/md";
+import Router from "next/router";
 
 export default function Home() {
     const auth = useAuth();
@@ -237,7 +238,10 @@ export default function Home() {
                             <div className="flex gap-2">
                                 <button
                                     onClick={() => {
-                                        console.log("Launch practice");
+                                        Router.push({
+                                            pathname: "/task-1",
+                                            query: { session: "practice" },
+                                        });
                                     }}
                                     className="text-white text-xs bg-slate-800 hover:bg-slate-900 px-3 w-max
 									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
@@ -252,7 +256,10 @@ export default function Home() {
                                         auth.participant?.wmc_task_completed
                                     }
                                     onClick={() => {
-                                        console.log("Begin task");
+                                        Router.push({
+                                            pathname: "/task-1",
+                                            query: { session: "commence" },
+                                        });
                                     }}
                                     className="text-white text-xs bg-blue-600 hover:bg-blue-700 px-3 w-max
 									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-300 disabled:text-white

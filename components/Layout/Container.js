@@ -11,10 +11,8 @@ export default function Container(props) {
         );
     } else {
         return (
-            <div className="px-5 py-10">
-                <div className="max-w-screen-lg mx-auto flex flex-col">
-                    {props.children}
-                </div>
+            <div className="max-w-screen-lg mx-auto flex flex-col h-full px-5 py-10 min-h-screen">
+                {props.children}
             </div>
         );
     }
