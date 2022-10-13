@@ -2,7 +2,14 @@ import { useAuth } from "../lib/firebase/auth";
 import Layout from "../components/Layout/Layout";
 import Container from "../components/Layout/Container";
 import { useState } from "react";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import {
+    MdArrowBack,
+    MdArrowForward,
+    MdCancel,
+    MdCheckCircle,
+    MdPlayCircle,
+    MdLock,
+} from "react-icons/md";
 
 export default function Home() {
     const auth = useAuth();
@@ -10,7 +17,7 @@ export default function Home() {
 
     const steps = [
         {
-            name: "1. Welcome",
+            name: "Welcome",
             content: (
                 <>
                     <h2>Welcome</h2>
@@ -44,7 +51,7 @@ export default function Home() {
             ),
         },
         {
-            name: "2. Overview",
+            name: "Overview",
             content: (
                 <>
                     <h2>Overview</h2>
@@ -72,7 +79,7 @@ export default function Home() {
             ),
         },
         {
-            name: "3. Task 1",
+            name: "Task 1 instructions",
             content: (
                 <>
                     <h2>Task 1: Working memory capacity</h2>
@@ -186,11 +193,87 @@ export default function Home() {
                         be calculated as your average accuracy across all trials
                         multiplied by $20.
                     </p>
+                    <h3>Launch task</h3>
+                    <p>
+                        Before proceeding, please ensure you have understood the
+                        instructions provided.{" "}
+                        <b>
+                            If you have any questions, please raise them with
+                            your experimenter.
+                        </b>{" "}
+                        On the next screen, you will be given the chance to
+                        launch a practice session to familiarise youself with
+                        the interface. You must complete at least one practice
+                        session before commencing the experiment.
+                    </p>
                 </>
             ),
         },
         {
-            name: "4. Task 2",
+            name: <MdPlayCircle className="text-lg" />,
+            content: (
+                <>
+                    <h2>Launch task 1</h2>
+                    <p>
+                        Use the interface below to launch a practice session,
+                        and then commence the task. You may complete as many
+                        practice sessions as you like.
+                    </p>
+                    <div className="flex flex-col gap-2">
+                        <div className="rounded-lg border boder-slate-100 p-5 flex flex-col gap-2">
+                            <div className="text-slate-700 font-semibold">
+                                Task 1: Working memory capacity (~30 minutes)
+                            </div>
+                            <div className="text-slate-500 text-sm flex flex-col gap-1 mb-5">
+                                <div>
+                                    You must complete at least one practice
+                                    session before beginning the task.{" "}
+                                    <b>
+                                        Please do not close your browser after
+                                        commencing the task.
+                                    </b>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <button
+                                    onClick={() => {
+                                        console.log("Launch practice");
+                                    }}
+                                    className="text-white text-xs bg-slate-800 hover:bg-slate-900 px-3 w-max
+									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
+                                >
+                                    Launch practice
+                                    <MdArrowForward />
+                                </button>
+                                <button
+                                    disabled={
+                                        !auth.participant
+                                            ?.wmc_practice_completed |
+                                        auth.participant?.wmc_task_completed
+                                    }
+                                    onClick={() => {
+                                        console.log("Begin task");
+                                    }}
+                                    className="text-white text-xs bg-blue-600 hover:bg-blue-700 px-3 w-max
+									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-300 disabled:text-white
+									disabled:cursor-not-allowed"
+                                >
+                                    Begin task
+                                    {!auth.participant
+                                        ?.wmc_practice_completed ? (
+                                        <MdLock />
+                                    ) : (
+                                        <MdArrowForward />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            ),
+        },
+        {
+            name: "Task 2 instructions",
             content: (
                 <>
                     <h2>Task 2: Valuation game</h2>
@@ -198,19 +281,65 @@ export default function Home() {
             ),
         },
         {
-            name: "5. Practice",
+            name: <MdPlayCircle className="text-lg" />,
             content: (
                 <>
-                    <h2>Practice</h2>
-                </>
-            ),
-        },
-        {
-            name: "6. Begin experiment",
-            content: (
-                <>
-                    <h2>Begin experiment</h2>
-                    <div></div>
+                    <h2>Launch task 2</h2>
+                    <p>
+                        Use the interface below to launch a practice session,
+                        and then commence the task. You may complete as many
+                        practice sessions as you like.
+                    </p>
+                    <div className="flex flex-col gap-2">
+                        <div className="rounded-lg border boder-slate-100 p-5 flex flex-col gap-2">
+                            <div className="text-slate-700 font-semibold">
+                                Task 2: Valuation game (~30 minutes)
+                            </div>
+                            <div className="text-slate-500 text-sm flex flex-col gap-1 mb-5">
+                                <div>
+                                    You must complete at least one practice
+                                    session before beginning the task.{" "}
+                                    <b>
+                                        Please do not close your browser after
+                                        commencing the task.
+                                    </b>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <button
+                                    onClick={() => {
+                                        console.log("Launch practice");
+                                    }}
+                                    className="text-white text-xs bg-slate-800 hover:bg-slate-900 px-3 w-max
+									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
+                                >
+                                    Launch practice
+                                    <MdArrowForward />
+                                </button>
+                                <button
+                                    disabled={
+                                        !auth.participant
+                                            ?.wmc_practice_completed |
+                                        auth.participant?.wmc_task_completed
+                                    }
+                                    onClick={() => {
+                                        console.log("Begin task");
+                                    }}
+                                    className="text-white text-xs bg-blue-600 hover:bg-blue-700 px-3 w-max
+									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-300 disabled:text-white
+									disabled:cursor-not-allowed"
+                                >
+                                    Begin task
+                                    {!auth.participant
+                                        ?.wmc_practice_completed ? (
+                                        <MdLock />
+                                    ) : (
+                                        <MdArrowForward />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </>
             ),
         },
