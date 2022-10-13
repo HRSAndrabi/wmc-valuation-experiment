@@ -31,10 +31,9 @@ def create_user(email:str, password:str):
 		user: instance of created user.
 	"""
 	user = auth.create_user(
-		email="1000@cbmm.com",
+		email=email,
 		email_verified=True,
-		password="password",
-		display_name="Name",
+		password=password,
 		disabled=False
 	)
 	print(f"Created user for: {email} (ID: {user.uid})")
