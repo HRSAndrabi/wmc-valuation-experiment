@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../lib/firebase/auth";
 import { useEffect } from "react";
+import Router from "next/router";
 import { PulseLoader } from "react-spinners";
 
 export default function Login() {
@@ -18,6 +19,10 @@ export default function Login() {
     useEffect(() => {
         auth.clearError();
     }, []);
+
+    if (auth.user !== null) {
+        Router.push("/");
+    }
 
     return (
         <div className="flex justify-center items-center h-screen p-5 bg-slate-100">
