@@ -55,11 +55,9 @@ def create_participant(user):
 			"val_task_completed": False,
 			"wmc_task_completed": False,
 			"timestamp": firestore.SERVER_TIMESTAMP,
-			"user": user.uid,
 		}
-	update_time, participant_ref = db.collection(u"participants").add(participant)
-	print(f"Created corresponding record in firestore (ID: {participant_ref.id})")
-	return participant_ref
+	db.collection("participants").document(user.uid).set(participant)
+	print(f"Created corresponding record in firestore (ID: {user.uid})")
 
 def batch_register_participants(num_participants:int):
 	"""
@@ -86,7 +84,7 @@ def batch_register_participants(num_participants:int):
 			email=email,
 			password=password,
 		)
-		participant = create_participant(
+		create_participant(
 			user=user
 		)
 		participants.append({

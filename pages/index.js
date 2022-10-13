@@ -210,6 +210,7 @@ export default function Home() {
             content: (
                 <>
                     <h2>Begin experiment</h2>
+                    <div></div>
                 </>
             ),
         },
