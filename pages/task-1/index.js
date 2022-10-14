@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useAuth } from "../../lib/firebase/auth";
+import { useParticipant } from "../../lib/firebase/participant";
 import { useState, useEffect } from "react";
 import Container from "../../components/Layout/Container";
 import Instructions from "../../components/experiment/Instructions";
@@ -10,6 +11,7 @@ export default function Task1() {
     const router = useRouter();
     const session = router.query.session;
     const auth = useAuth();
+    const participant = useParticipant();
     const [taskStatus, setTaskStatus] = useState(0);
     const [results, setResults] = useState([]);
 
@@ -25,6 +27,7 @@ export default function Task1() {
     const completeTaskHandler = (results) => {
         setTaskStatus(2);
         setResults(results);
+        participant.addResults(auth.user.uid, "wmc", session, results);
     };
 
     return (

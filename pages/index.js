@@ -1,7 +1,8 @@
 import { useAuth } from "../lib/firebase/auth";
+import { useParticipant } from "../lib/firebase/participant";
 import Layout from "../components/Layout/Layout";
 import Container from "../components/Layout/Container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     MdArrowBack,
     MdArrowForward,
@@ -14,7 +15,20 @@ import Router from "next/router";
 
 export default function Home() {
     const auth = useAuth();
+    const participant = useParticipant();
     const [selectedStep, setSelectedStep] = useState(0);
+    const [currentParticipant, setCurrentParticipant] = useState(null);
+
+    useEffect(() => {
+        const fetchParticipant = async () => {
+            if (auth.user) {
+                const currentParticipant = await participant.get(auth.user.uid);
+                setCurrentParticipant(currentParticipant);
+            }
+        };
+        fetchParticipant();
+        console.log(currentParticipant);
+    }, [auth.user]);
 
     const steps = [
         {
@@ -251,14 +265,13 @@ export default function Home() {
                                 </button>
                                 <button
                                     disabled={
-                                        !auth.participant
-                                            ?.wmc_practice_completed |
-                                        auth.participant?.wmc_task_completed
+                                        !currentParticipant?.wmc_practice_completed |
+                                        currentParticipant?.wmc_task_completed
                                     }
                                     onClick={() => {
                                         Router.push({
                                             pathname: "/task-1",
-                                            query: { session: "commence" },
+                                            query: { session: "formal" },
                                         });
                                     }}
                                     className="text-white text-xs bg-blue-600 hover:bg-blue-700 px-3 w-max
@@ -266,8 +279,7 @@ export default function Home() {
 									disabled:cursor-not-allowed"
                                 >
                                     Begin task
-                                    {!auth.participant
-                                        ?.wmc_practice_completed ? (
+                                    {!currentParticipant?.wmc_practice_completed ? (
                                         <MdLock />
                                     ) : (
                                         <MdArrowForward />
@@ -325,9 +337,8 @@ export default function Home() {
                                 </button>
                                 <button
                                     disabled={
-                                        !auth.participant
-                                            ?.wmc_practice_completed |
-                                        auth.participant?.wmc_task_completed
+                                        !currentParticipant?.wmc_practice_completed |
+                                        currentParticipant?.wmc_task_completed
                                     }
                                     onClick={() => {
                                         console.log("Begin task");
@@ -337,8 +348,7 @@ export default function Home() {
 									disabled:cursor-not-allowed"
                                 >
                                     Begin task
-                                    {!auth.participant
-                                        ?.wmc_practice_completed ? (
+                                    {!currentParticipant?.wmc_practice_completed ? (
                                         <MdLock />
                                     ) : (
                                         <MdArrowForward />
