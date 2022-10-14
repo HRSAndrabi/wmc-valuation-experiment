@@ -162,7 +162,8 @@ export default function WmcTask({ practice, onTaskComplete }) {
                                             <div
                                                 key={i}
                                                 className="rounded-md border border-slate-200 p-4 flex gap-4 
-                                                cursor-pointer hover:bg-slate-50 text-3xl"
+                                                cursor-pointer hover:bg-slate-50 text-3xl justify-center items-center 
+                                                h-16 w-16"
                                                 onClick={() => {
                                                     submitAnswerHandler(
                                                         currentQuestion?.colour,
@@ -170,14 +171,6 @@ export default function WmcTask({ practice, onTaskComplete }) {
                                                     );
                                                 }}
                                             >
-                                                <input
-                                                    id={`option-${i}`}
-                                                    type="radio"
-                                                    value={pairing.number}
-                                                    name="recall-question"
-                                                    className="cursor-pointer"
-                                                    disabled
-                                                />
                                                 {pairing.number}
                                             </div>
                                         );
@@ -201,7 +194,7 @@ export default function WmcTask({ practice, onTaskComplete }) {
                                             <div
                                                 key={i}
                                                 className="rounded-md border border-slate-200 p-4 flex gap-4 
-                                                cursor-pointer hover:bg-slate-50 text-3xl"
+                                                cursor-pointer hover:bg-slate-50 text-3xl items-center"
                                                 onClick={() => {
                                                     submitAnswerHandler(
                                                         pairing.colour,
@@ -209,14 +202,6 @@ export default function WmcTask({ practice, onTaskComplete }) {
                                                     );
                                                 }}
                                             >
-                                                <input
-                                                    id={`option-${i}`}
-                                                    type="radio"
-                                                    value={pairing.number}
-                                                    name="recall-question"
-                                                    className="cursor-pointer"
-                                                    disabled
-                                                />
                                                 <div
                                                     className="h-10 w-10"
                                                     style={{
