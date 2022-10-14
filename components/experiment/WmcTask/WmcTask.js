@@ -58,6 +58,14 @@ export default function WmcTask({ practice, onTaskComplete }) {
                     setVisiblePairing(null);
                     if (i === trials[currentTrial].pairings.length - 0.5) {
                         setTrialPhase(1);
+                        const shuffledTrials = [...trials];
+                        shuffledTrials[currentTrial].pairings = shuffle(
+                            shuffledTrials[currentTrial].pairings
+                        );
+                        setTrials(shuffledTrials);
+                        setCurrentQuestion(
+                            shuffledTrials[currentTrial].pairings[0]
+                        );
                     }
                 }
             }, i * 3000);
@@ -69,7 +77,6 @@ export default function WmcTask({ practice, onTaskComplete }) {
         setTrialCommenced(true);
         console.log(trials);
         showPairings();
-        setCurrentQuestion(trials[currentTrial].pairings[0]);
     };
 
     const submitAnswerHandler = (colour, number) => {
@@ -149,7 +156,7 @@ export default function WmcTask({ practice, onTaskComplete }) {
                                 }}
                             ></div>
                             <div className="flex gap-4">
-                                {trials[currentTrial].pairings.map(
+                                {shuffle(trials[currentTrial].pairings).map(
                                     (pairing, i) => {
                                         return (
                                             <div
@@ -188,7 +195,7 @@ export default function WmcTask({ practice, onTaskComplete }) {
                                 {currentQuestion?.number}
                             </div>
                             <div className="flex gap-4">
-                                {trials[currentTrial].pairings.map(
+                                {shuffle(trials[currentTrial].pairings).map(
                                     (pairing, i) => {
                                         return (
                                             <div
