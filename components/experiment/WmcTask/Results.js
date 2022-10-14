@@ -25,7 +25,8 @@ export default function Results({ session, results }) {
                 You scored{" "}
                 <span className="font-semibold">
                     {totalCorrect} out of {totalQuestions} (
-                    {Math.round((5 * 10000) / 7) / 100}%)
+                    {Math.round((totalCorrect * 10000) / totalQuestions) / 100}
+                    %)
                 </span>
             </p>
             <table>
