@@ -1,7 +1,7 @@
 import Button from "../../UI/Button";
 import Router from "next/router";
 
-export default function Results({ session, results }) {
+export default function Results({ session, results, onResetPractice }) {
     const totalCorrect = results.reduce(
         (sum, trial) => sum + trial.numCorrect,
         0
@@ -54,10 +54,7 @@ export default function Results({ session, results }) {
             <div className="flex justify-between">
                 <Button
                     onClick={() => {
-                        Router.push({
-                            pathname: "/task-1",
-                            query: { session: "practice" },
-                        });
+                        onResetPractice();
                     }}
                     variant="alt"
                     arrow="forward"

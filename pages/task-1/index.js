@@ -30,6 +30,10 @@ export default function Task1() {
         participant.addResults(auth.user.uid, "wmc", session, results);
     };
 
+    const resetPracticeHandler = () => {
+        setTaskStatus(0);
+    };
+
     return (
         <Container>
             {taskStatus === 0 ? (
@@ -44,7 +48,11 @@ export default function Task1() {
                     onTaskComplete={completeTaskHandler}
                 />
             ) : (
-                <Results session={session} results={results} />
+                <Results
+                    session={session}
+                    results={results}
+                    onResetPractice={resetPracticeHandler}
+                />
             )}
         </Container>
     );
