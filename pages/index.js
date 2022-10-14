@@ -31,18 +31,14 @@ export default function Home() {
                 <>
                     <h2>Welcome</h2>
                     <p>
-                        Welcome to your remote experiment. During the experiment
-                        you are not allowed to communicate. If you have
-                        questions at any time, please notify your experimenter.
+                        Welcome to your remote experiment. Before proceeding,
+                        please take some time to set up in a quiet place where
+                        you are unlikely to be disturbed.
                     </p>
                     <p>
-                        You should complete this experiment in a quiet
-                        environment without distractions.
-                    </p>
-                    <p>
-                        You will make your decisions privately and anonymously.
-                        Your name will never be linked to your decisions or
-                        performance.
+                        All decisions in this experiment will be made privately
+                        and anonymously. Your name will never be linked to your
+                        decisions or performance.
                     </p>
                     <p>
                         During the experiment you are not allowed to take notes,
@@ -52,8 +48,8 @@ export default function Home() {
                     <p>
                         After commencing a task,{" "}
                         <b>
-                            do not close your browser until the task has been
-                            completed.
+                            do not close or refresh your browser until the task
+                            has been completed.
                         </b>
                     </p>
                 </>

@@ -21,24 +21,27 @@ export default function Instructions({ session, task, handleBeginTask }) {
                 </div>
             )}
             <p>
-                Please ensure you are in a quiet environment, that is free of
-                distractions. If you haven't already, please turn off your
-                cellphone and put it away.
+                Before proceeding, please take some time to set up in a quiet
+                place where you are unlikely to be disturbed. If you haven't
+                already, please turn off your cellphone and put it away.
             </p>
             <p>
                 Please do not take notes, or use assistive technologies like
                 calculators or cellphones during the task.
             </p>
             <p>
-                Once you have commenced the task, do not close your browser or
-                the current tab until the task is completed.
-            </p>
-            <p className="mb-10">
                 If you wish to review the instructions once more, you may return
                 to the dashboard. If you are ready to commence the task, please
                 click 'Begin task'.
             </p>
-            <div className="flex gap-2 justify-between">
+            <p>
+                Upon commencing the task,{" "}
+                <b>
+                    do not close or refresh your browser until the task has been
+                    completed.
+                </b>
+            </p>
+            <div className="flex gap-2 justify-between mt-10">
                 <Button
                     onClick={() => {
                         Router.push("/");
