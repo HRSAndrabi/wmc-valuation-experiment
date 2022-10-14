@@ -1,4 +1,5 @@
 import { MdArrowForward } from "react-icons/md";
+import Button from "../UI/Button";
 import Router from "next/router";
 
 export default function Instructions({ session, task, handleBeginTask }) {
@@ -37,24 +38,22 @@ export default function Instructions({ session, task, handleBeginTask }) {
                 click 'Begin task'.
             </p>
             <div className="flex gap-2 justify-between">
-                <button
+                <Button
                     onClick={() => {
                         Router.push("/");
                     }}
-                    className="text-white text-sm bg-slate-800 hover:bg-slate-900 px-3 py-2 rounded-lg 
-						flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
-                >
-                    Return to dashboard
-                    <MdArrowForward />
-                </button>
-                <button
+                    variant="alt"
+                    arrow="forward"
+                    text="Return to dashboard"
+                    size="small"
+                />
+                <Button
                     onClick={handleBeginTask}
-                    className="text-white text-sm bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-lg 
-						flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
-                >
-                    Begin task
-                    <MdArrowForward />
-                </button>
+                    variant="primary"
+                    arrow="forward"
+                    text="Begin task"
+                    size="small"
+                />
             </div>
         </div>
     );

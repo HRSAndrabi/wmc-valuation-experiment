@@ -1,19 +1,32 @@
-import { MdArrowForward } from "react-icons/md";
-import { MdArrowBack } from "react-icons/md";
+import { MdArrowForward, MdArrowBack, MdLock } from "react-icons/md";
 
-export default function Button({ onClick, variant, arrow, text, size }) {
+export default function Button({
+    onClick,
+    variant,
+    arrow,
+    text,
+    size,
+    disabled,
+}) {
     return (
         <button
             onClick={onClick}
             className={`text-white px-3 py-2 rounded-lg flex gap-2 items-center
-			disabled:bg-slate-200 disabled:text-white ${size === "small" && "text-sm"}
+			disabled:bg-slate-300 disabled:text-white ${size === "small" && "text-sm"}
+            ${size === "extra-small" && "text-xs"}
 			${
                 variant === "primary"
                     ? "bg-blue-600 hover:bg-blue-700"
                     : "bg-slate-800 hover:bg-slate-900"
             }`}
+            disabled={disabled}
         >
-            {arrow === "forward" ? (
+            {disabled ? (
+                <>
+                    {text}
+                    <MdLock />
+                </>
+            ) : arrow === "forward" ? (
                 <>
                     {text}
                     <MdArrowForward />
@@ -24,7 +37,7 @@ export default function Button({ onClick, variant, arrow, text, size }) {
                     {text}
                 </>
             ) : (
-                { text }
+                text
             )}
         </button>
     );

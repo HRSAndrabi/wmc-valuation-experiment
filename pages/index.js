@@ -12,6 +12,7 @@ import {
     MdLock,
 } from "react-icons/md";
 import Router from "next/router";
+import Button from "../components/UI/Button";
 
 export default function Home() {
     const auth = useAuth();
@@ -250,41 +251,34 @@ export default function Home() {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <button
+                                <Button
                                     onClick={() => {
                                         Router.push({
                                             pathname: "/task-1",
                                             query: { session: "practice" },
                                         });
                                     }}
-                                    className="text-white text-xs bg-slate-800 hover:bg-slate-900 px-3 w-max
-									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
-                                >
-                                    Launch practice
-                                    <MdArrowForward />
-                                </button>
-                                <button
-                                    disabled={
-                                        !currentParticipant?.wmc_practice_completed |
-                                        currentParticipant?.wmc_task_completed
-                                    }
+                                    variant="alt"
+                                    arrow="forward"
+                                    text="Launch practice"
+                                    size="extra-small"
+                                />
+                                <Button
                                     onClick={() => {
                                         Router.push({
                                             pathname: "/task-1",
                                             query: { session: "formal" },
                                         });
                                     }}
-                                    className="text-white text-xs bg-blue-600 hover:bg-blue-700 px-3 w-max
-									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-300 disabled:text-white
-									disabled:cursor-not-allowed"
-                                >
-                                    Begin task
-                                    {!currentParticipant?.wmc_practice_completed ? (
-                                        <MdLock />
-                                    ) : (
-                                        <MdArrowForward />
-                                    )}
-                                </button>
+                                    variant="primary"
+                                    arrow="forward"
+                                    text="Begin task"
+                                    size="extra-small"
+                                    disabled={
+                                        !currentParticipant?.wmc_practice_completed |
+                                        currentParticipant?.wmc_task_completed
+                                    }
+                                />
                             </div>
                         </div>
                     </div>
@@ -325,35 +319,34 @@ export default function Home() {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <button
+                                <Button
                                     onClick={() => {
-                                        console.log("Launch practice");
+                                        Router.push({
+                                            pathname: "/task-2",
+                                            query: { session: "practice" },
+                                        });
                                     }}
-                                    className="text-white text-xs bg-slate-800 hover:bg-slate-900 px-3 w-max
-									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
-                                >
-                                    Launch practice
-                                    <MdArrowForward />
-                                </button>
-                                <button
+                                    variant="alt"
+                                    arrow="forward"
+                                    text="Launch practice"
+                                    size="extra-small"
+                                />
+                                <Button
+                                    onClick={() => {
+                                        Router.push({
+                                            pathname: "/task-2",
+                                            query: { session: "formal" },
+                                        });
+                                    }}
+                                    variant="primary"
+                                    arrow="forward"
+                                    text="Begin task"
+                                    size="extra-small"
                                     disabled={
-                                        !currentParticipant?.wmc_practice_completed |
-                                        currentParticipant?.wmc_task_completed
+                                        !currentParticipant?.val_practice_completed |
+                                        currentParticipant?.val_task_completed
                                     }
-                                    onClick={() => {
-                                        console.log("Begin task");
-                                    }}
-                                    className="text-white text-xs bg-blue-600 hover:bg-blue-700 px-3 w-max
-									py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-300 disabled:text-white
-									disabled:cursor-not-allowed"
-                                >
-                                    Begin task
-                                    {!currentParticipant?.wmc_practice_completed ? (
-                                        <MdLock />
-                                    ) : (
-                                        <MdArrowForward />
-                                    )}
-                                </button>
+                                />
                             </div>
                         </div>
                     </div>
@@ -395,28 +388,26 @@ export default function Home() {
                 </div>
                 <div className="max-w-prose w-full mx-auto">
                     <div className="flex justify-between">
-                        <button
-                            disabled={selectedStep === 0}
+                        <Button
                             onClick={() => {
                                 setSelectedStep(selectedStep - 1);
                             }}
-                            className="text-white text-sm bg-blue-600 hover:bg-blue-700 px-3 
-							py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
-                        >
-                            <MdArrowBack />
-                            Previous
-                        </button>
-                        <button
-                            disabled={selectedStep === steps.length - 1}
+                            variant="primary"
+                            arrow="backward"
+                            text="Previous"
+                            size="extra-small"
+                            disabled={selectedStep === 0}
+                        />
+                        <Button
                             onClick={() => {
                                 setSelectedStep(selectedStep + 1);
                             }}
-                            className="text-white text-sm bg-blue-600 hover:bg-blue-700 px-3 
-							py-2 rounded-lg flex gap-2 items-center disabled:bg-slate-200 disabled:text-white"
-                        >
-                            Next
-                            <MdArrowForward />
-                        </button>
+                            variant="primary"
+                            arrow="forward"
+                            text="Next"
+                            size="extra-small"
+                            disabled={selectedStep === steps.length - 1}
+                        />
                     </div>
                 </div>
             </div>

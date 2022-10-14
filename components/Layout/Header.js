@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "../UI/Button";
 import Image from "next/image";
 import { MdMenu } from "react-icons/md";
 import { useAuth } from "../../lib/firebase/auth";
@@ -24,14 +25,14 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="hidden sm:flex gap-6 items-center">
-                    <button
+                    <Button
                         onClick={() => {
                             auth.signout();
                         }}
-                        className="text-neutral-100 text-sm bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-lg"
-                    >
-                        Sign out
-                    </button>
+                        variant="primary"
+                        text="Sign out"
+                        size="small"
+                    />
                 </div>
                 <div className="flex sm:hidden">
                     <MdMenu className="text-2xl text-slate-800 cursor-pointer" />
