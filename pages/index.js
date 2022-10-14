@@ -3,14 +3,7 @@ import { useParticipant } from "../lib/firebase/participant";
 import Layout from "../components/Layout/Layout";
 import Container from "../components/Layout/Container";
 import { useState, useEffect } from "react";
-import {
-    MdArrowBack,
-    MdArrowForward,
-    MdCancel,
-    MdCheckCircle,
-    MdPlayCircle,
-    MdLock,
-} from "react-icons/md";
+import { MdPlayCircle } from "react-icons/md";
 import Router from "next/router";
 import Button from "../components/UI/Button";
 
@@ -241,13 +234,10 @@ export default function Home() {
                                 Task 1: Working memory capacity (~30 minutes)
                             </div>
                             <div className="text-slate-500 text-sm flex flex-col gap-1 mb-5">
-                                <div>
-                                    You must complete at least one practice
-                                    session before beginning the task.{" "}
-                                    <b>
-                                        Please do not close your browser after
-                                        commencing the task.
-                                    </b>
+                                <div className="mb-5">
+                                    {!currentParticipant?.wmc_task_completed
+                                        ? "You must complete at least one practice session before beginning the task."
+                                        : "This task has already been completed."}
                                 </div>
                             </div>
                             <div className="flex gap-2">
@@ -262,6 +252,9 @@ export default function Home() {
                                     arrow="forward"
                                     text="Launch practice"
                                     size="extra-small"
+                                    disabled={
+                                        currentParticipant?.wmc_task_completed
+                                    }
                                 />
                                 <Button
                                     onClick={() => {
@@ -309,13 +302,10 @@ export default function Home() {
                                 Task 2: Valuation game (~30 minutes)
                             </div>
                             <div className="text-slate-500 text-sm flex flex-col gap-1 mb-5">
-                                <div>
-                                    You must complete at least one practice
-                                    session before beginning the task.{" "}
-                                    <b>
-                                        Please do not close your browser after
-                                        commencing the task.
-                                    </b>
+                                <div className="mb-5">
+                                    {!currentParticipant?.val_task_completed
+                                        ? "You must complete at least one practice session before beginning the task."
+                                        : "This task has already been completed."}
                                 </div>
                             </div>
                             <div className="flex gap-2">
@@ -330,6 +320,9 @@ export default function Home() {
                                     arrow="forward"
                                     text="Launch practice"
                                     size="extra-small"
+                                    disabled={
+                                        currentParticipant?.val_task_completed
+                                    }
                                 />
                                 <Button
                                     onClick={() => {
