@@ -14,9 +14,10 @@ export default function Instructions({ session, task, handleBeginTask }) {
                 </div>
             ) : (
                 <div className="rounded-lg bg-slate-100 p-5 border border-slate-300 text-sm">
-                    <b>Note</b>: This is not a practice run. If you are unsure
-                    about structure of the task or the interface, please return
-                    to the dashboard now and complete another practice run.
+                    <b>Note</b>: This is your one and only formal attempt for{" "}
+                    {task}. If you are unsure about structure of the task or the
+                    interface, please return to the dashboard now and complete
+                    another practice run.
                 </div>
             )}
             <p>
