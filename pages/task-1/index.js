@@ -48,7 +48,7 @@ export default function Task1() {
                     onTaskComplete={completeTaskHandler}
                 />
             ) : (
-                <Results
+                <WmcResults
                     session={session}
                     results={results}
                     onResetPractice={resetPracticeHandler}
