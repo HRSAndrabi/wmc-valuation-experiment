@@ -2,7 +2,11 @@ import { MdArrowForward } from "react-icons/md";
 import Button from "../UI/Button";
 import Router from "next/router";
 
-export default function Instructions({ session, task, handleBeginTask }) {
+export default function GenericInstructions({
+    session,
+    task,
+    handleBeginTask,
+}) {
     return (
         <div className="w-full max-w-prose prose mx-auto my-auto">
             <h2>You are about to begin {task}.</h2>

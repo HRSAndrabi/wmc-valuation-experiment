@@ -3,7 +3,7 @@ import { useAuth } from "../../lib/firebase/auth";
 import { useParticipant } from "../../lib/firebase/participant";
 import { useState, useEffect } from "react";
 import Container from "../../components/Layout/Container";
-import Instructions from "../../components/experiment/Instructions";
+import GenericInstructions from "../../components/experiment/GenericInstructions";
 import WmcTask from "../../components/experiment/WmcTask/WmcTask";
 import Results from "../../components/experiment/WmcTask/Results";
 
@@ -37,7 +37,7 @@ export default function Task1() {
     return (
         <Container>
             {taskStatus === 0 ? (
-                <Instructions
+                <GenericInstructions
                     session={session}
                     task={"Task 1"}
                     handleBeginTask={beginTaskHandler}
