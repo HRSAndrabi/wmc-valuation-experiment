@@ -1,7 +1,7 @@
 import Button from "../../UI/Button";
 import Router from "next/router";
 
-export default function Results({ session, results, onResetPractice }) {
+export default function WmcResults({ session, results, onResetPractice }) {
     const totalCorrect = results.reduce(
         (sum, trial) => sum + trial.numCorrect,
         0

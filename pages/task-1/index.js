@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Container from "../../components/Layout/Container";
 import GenericInstructions from "../../components/experiment/GenericInstructions";
 import WmcTask from "../../components/experiment/WmcTask/WmcTask";
-import Results from "../../components/experiment/WmcTask/Results";
+import WmcResults from "../../components/experiment/WmcTask/WmcResults";
 
 export default function Task1() {
     const router = useRouter();
