@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../../lib/firebase/auth";
 import { useParticipant } from "../../../lib/firebase/participant";
 import Button from "../../UI/Button";
+import Router from "next/router";
 
 export default function ValLaunch() {
     const auth = useAuth();
