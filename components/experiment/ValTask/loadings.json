@@ -1,0 +1,50 @@
+[
+    {
+        "loading": 2,
+        "sd": 4
+    },
+    {
+        "loading": 2,
+        "sd": 8
+    },
+    {
+        "loading": 2,
+        "sd": 12
+    },
+    {
+        "loading": 3,
+        "sd": 4
+    },
+    {
+        "loading": 3,
+        "sd": 8
+    },
+    {
+        "loading": 3,
+        "sd": 12
+    },
+    {
+        "loading": 5,
+        "sd": 4
+    },
+    {
+        "loading": 5,
+        "sd": 8
+    },
+    {
+        "loading": 5,
+        "sd": 12
+    },
+    {
+        "loading": 10,
+        "sd": 4
+    },
+    {
+        "loading": 10,
+        "sd": 8
+    },
+    {
+        "loading": 10,
+        "sd": 12
+    }
+]
