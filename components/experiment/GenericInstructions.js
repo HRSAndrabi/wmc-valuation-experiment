@@ -26,8 +26,9 @@ export default function GenericInstructions({
             )}
             <p>
                 Before proceeding, please take some time to set up in a quiet
-                place where you are unlikely to be disturbed. If you haven't
-                already, please turn off your cellphone and put it away.
+                place where you are unlikely to be disturbed. If you
+                haven&apos;t already, please turn off your cellphone and put it
+                away.
             </p>
             <p>
                 Please do not take notes, or use assistive technologies like
@@ -36,7 +37,7 @@ export default function GenericInstructions({
             <p>
                 If you wish to review the instructions once more, you may return
                 to the dashboard. If you are ready to commence the task, please
-                click 'Begin task'.
+                click &apos;Begin task&apos;.
             </p>
             <p>
                 Upon commencing the task,{" "}
