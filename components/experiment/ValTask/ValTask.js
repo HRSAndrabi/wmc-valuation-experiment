@@ -54,7 +54,6 @@ export default function ValTask({ practice, onTaskComplete }) {
                 bin: rescaledBin,
             });
         });
-        console.log(instantiateTrials);
         setTrials(instantiateTrials);
     }, []);
 
@@ -175,7 +174,6 @@ export default function ValTask({ practice, onTaskComplete }) {
     const beginTrialHandler = () => {
         setTrialPhase(0);
         setTrialCommenced(true);
-        console.log(trials);
     };
 
     const nextPhaseHandler = () => {
@@ -223,7 +221,6 @@ export default function ValTask({ practice, onTaskComplete }) {
     };
 
     const nextTrialHandler = () => {
-        console.log(trials[currentTrial]);
         setTrialCommenced(false);
         setTrialPhase(0);
         setRecallPriceIndex(0);

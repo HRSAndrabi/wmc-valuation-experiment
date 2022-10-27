@@ -7,9 +7,6 @@ export default function ValResults({
     performance,
     onResetPractice,
 }) {
-    console.log(results);
-    console.log(performance);
-
     return (
         <div className="w-full max-w-prose prose mx-auto my-auto">
             <h2>You have completed task 2</h2>

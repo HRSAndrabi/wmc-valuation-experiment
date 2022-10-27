@@ -50,7 +50,6 @@ export default function WmcTask({ practice, onTaskComplete }) {
         for (let i = 0; i < trials[currentTrial].pairings.length; i += 0.5) {
             setTimeout(function timer() {
                 if (i % 1 === 0) {
-                    console.log(trials[currentTrial].pairings[i]);
                     setVisiblePairing(trials[currentTrial].pairings[i]);
                 } else {
                     setVisiblePairing(null);
@@ -73,7 +72,6 @@ export default function WmcTask({ practice, onTaskComplete }) {
     const beginTrialHandler = () => {
         setTrialPhase(0);
         setTrialCommenced(true);
-        console.log(trials);
         showPairings();
     };
 
@@ -82,10 +80,8 @@ export default function WmcTask({ practice, onTaskComplete }) {
             colour === currentQuestion.colour &&
             number === currentQuestion.number
         ) {
-            console.log("Correct");
             trials[currentTrial].numCorrect += 1;
         } else {
-            console.log("Incorrect");
         }
         const currentQuestionIndex =
             trials[currentTrial].pairings.indexOf(currentQuestion);
