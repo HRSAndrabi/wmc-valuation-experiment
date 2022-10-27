@@ -57,7 +57,7 @@ export default function WmcInstructions() {
                 <div className="w-5 h-5 bg-red-600"></div>
                 <div className="flex gap-4">
                     <label
-                        for="option-1"
+                        htmlFor="option-1"
                         className="rounded-md border border-slate-200 px-4 py-1 flex gap-2 
 								cursor-pointer hover:bg-slate-50"
                     >
@@ -71,7 +71,7 @@ export default function WmcInstructions() {
                         1
                     </label>
                     <label
-                        for="option-2"
+                        htmlFor="option-2"
                         className="rounded-md border border-slate-200 px-4 py-1 flex gap-2 
 								cursor-pointer hover:bg-slate-50"
                     >
@@ -86,7 +86,7 @@ export default function WmcInstructions() {
                         5
                     </label>
                     <label
-                        for="option-3"
+                        htmlFor="option-3"
                         className="rounded-md border border-slate-200 px-4 py-1 flex gap-2 
 								cursor-pointer hover:bg-slate-50"
                     >
