@@ -1,15 +1,14 @@
 import Button from "../../UI/Button";
 import Router from "next/router";
 
-export default function ValResults({ session, results, onResetPractice }) {
-    const totalCorrect = results.reduce(
-        (sum, trial) => sum + trial.numCorrect,
-        0
-    );
-    const totalQuestions = results.reduce(
-        (sum, trial) => sum + trial.loading,
-        0
-    );
+export default function ValResults({
+    session,
+    results,
+    performance,
+    onResetPractice,
+}) {
+    console.log(results);
+    console.log(performance);
 
     return (
         <div className="w-full max-w-prose prose mx-auto my-auto">
@@ -22,19 +21,22 @@ export default function ValResults({ session, results, onResetPractice }) {
             )}
             <h3>Results</h3>
             <p>
-                You scored{" "}
+                Your performance:{" "}
                 <span className="font-semibold">
-                    {totalCorrect} out of {totalQuestions} (
-                    {Math.round((totalCorrect * 10000) / totalQuestions) / 100}
-                    %)
+                    ${performance} (+{performance - 50})
                 </span>
             </p>
-            <table>
+            <table className="text-xs">
                 <thead>
                     <tr>
-                        <th>Trial number</th>
+                        <th>Trial</th>
                         <th>Loading</th>
-                        <th>Score</th>
+                        <th>Sample length</th>
+                        <th>Min payoff</th>
+                        <th>Max payoff</th>
+                        <th>Average payoff</th>
+                        <th>Accepted prices</th>
+                        <th>Rejected prices</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +45,15 @@ export default function ValResults({ session, results, onResetPractice }) {
                             <tr key={i}>
                                 <td>{i + 1}</td>
                                 <td>{trial.loading}</td>
+                                <td>{trial.samples.length}</td>
+                                <td>{Math.min(...trial.payoffs)}</td>
+                                <td>{Math.max(...trial.payoffs)}</td>
                                 <td>
-                                    {trial.numCorrect}/{trial.loading}
+                                    {trial.bin.reduce((a, b) => a + b, 0) /
+                                        trial.bin.length}
                                 </td>
+                                <td>{trial.prices_accepted.join(", ")}</td>
+                                <td>{trial.prices_rejected.join(", ")}</td>
                             </tr>
                         );
                     })}

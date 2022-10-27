@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Container from "../../components/Layout/Container";
 import GenericInstructions from "../../components/experiment/GenericInstructions";
 import ValTask from "../../components/experiment/ValTask/ValTask";
-import ValResults from "../../components/experiment/WmcTask/WmcResults";
+import ValResults from "../../components/experiment/ValTask/ValResults";
 
 export default function Task2() {
     const router = useRouter();
@@ -14,6 +14,7 @@ export default function Task2() {
     const participant = useParticipant();
     const [taskStatus, setTaskStatus] = useState(0);
     const [results, setResults] = useState([]);
+    const [performance, setPerformance] = useState(0);
 
     useEffect(() => {
         auth.verifyAccess();
@@ -24,9 +25,10 @@ export default function Task2() {
         setTaskStatus(1);
     };
 
-    const completeTaskHandler = (results) => {
+    const completeTaskHandler = (results, performance) => {
         setTaskStatus(2);
         setResults(results);
+        setPerformance(performance);
         participant.addResults(auth.user.uid, "val", session, results);
     };
 
@@ -51,6 +53,7 @@ export default function Task2() {
                 <ValResults
                     session={session}
                     results={results}
+                    performance={performance}
                     onResetPractice={resetPracticeHandler}
                 />
             )}

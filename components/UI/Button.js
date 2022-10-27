@@ -11,8 +11,10 @@ export default function Button({
     return (
         <button
             onClick={onClick}
-            className={`text-white px-3 py-2 rounded-lg flex gap-2 items-center
-			disabled:bg-slate-300 disabled:text-white ${size === "small" && "text-sm"}
+            className={`text-white px-3 py-2 rounded-lg flex gap-2 items-center min-w-[5rem]
+			disabled:bg-slate-300 disabled:text-white justify-center ${
+                size === "small" && "text-sm"
+            }
             ${size === "extra-small" && "text-xs"}
 			${
                 variant === "primary"
