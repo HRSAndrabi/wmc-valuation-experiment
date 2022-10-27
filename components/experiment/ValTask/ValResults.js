@@ -23,7 +23,8 @@ export default function ValResults({
             <p>
                 Your performance:{" "}
                 <span className="font-semibold">
-                    ${performance} (+{performance - 50})
+                    ${performance} (+
+                    {Math.round((performance - 50) * 100) / 100})
                 </span>
             </p>
             <table className="text-xs">
