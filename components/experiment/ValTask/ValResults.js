@@ -42,6 +42,9 @@ export default function ValResults({
                 </thead>
                 <tbody>
                     {results.map((trial, i) => {
+                        const average_payoff =
+                            trial.bin.reduce((a, b) => a + b, 0) /
+                            trial.bin.length;
                         return (
                             <tr key={i}>
                                 <td>{i + 1}</td>
@@ -49,12 +52,47 @@ export default function ValResults({
                                 <td>{trial.samples.length}</td>
                                 <td>{Math.min(...trial.payoffs)}</td>
                                 <td>{Math.max(...trial.payoffs)}</td>
+                                <td>{average_payoff}</td>
                                 <td>
-                                    {trial.bin.reduce((a, b) => a + b, 0) /
-                                        trial.bin.length}
+                                    {!trial.prices_accepted.length && "None"}
+                                    {trial.prices_accepted.map((price, i) => {
+                                        return (
+                                            <span
+                                                key={i}
+                                                className={`${
+                                                    price <= average_payoff
+                                                        ? "text-green-500"
+                                                        : "text-red-600"
+                                                }`}
+                                            >
+                                                {price}
+                                                {i <
+                                                    trial.prices_accepted
+                                                        .length && ", "}
+                                            </span>
+                                        );
+                                    })}
                                 </td>
-                                <td>{trial.prices_accepted.join(", ")}</td>
-                                <td>{trial.prices_rejected.join(", ")}</td>
+                                <td>
+                                    {!trial.prices_rejected.length && "None"}
+                                    {trial.prices_rejected.map((price, i) => {
+                                        return (
+                                            <span
+                                                key={i}
+                                                className={`${
+                                                    price >= average_payoff
+                                                        ? "text-green-500"
+                                                        : "text-red-600"
+                                                }`}
+                                            >
+                                                {price}
+                                                {i <
+                                                    trial.prices_rejected
+                                                        .length && ", "}
+                                            </span>
+                                        );
+                                    })}
+                                </td>
                             </tr>
                         );
                     })}

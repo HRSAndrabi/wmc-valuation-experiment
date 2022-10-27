@@ -89,7 +89,7 @@ export default function ValTask({ practice, onTaskComplete }) {
             );
         });
         if (bin.some((payoff) => payoff < 0)) {
-            return generateBin();
+            return generateBin(sd, num_states);
         } else {
             let prices = calclateBinPrices(bin);
             let payoffs = [...new Set(bin)];

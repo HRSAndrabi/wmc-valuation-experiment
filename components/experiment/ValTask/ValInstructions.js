@@ -40,15 +40,17 @@ export default function ValInstructions() {
                 className="flex flex-col gap-2 justify-center p-5 border border-slate-200
 			    rounded-lg text-xs text-slate-600 font-light text-center"
             >
+                <div className="rounded-lg font-bold p-3 bg-green-100 max-w-xs mx-auto">
+                    Your balance: $50
+                </div>
                 <p className="max-w-xs mx-auto">
-                    There are six colours in this bin.
-                    <br />
-                    Payoffs are indicated by numbers on the balls. <br />
-                    <span className="font-medium">
-                        The number of balls of each colour is unknown.
+                    We have constructed a bin with 100 balls. The bin contains 6
+                    different types of balls, indicated below.{" "}
+                    <span className="font-bold">
+                        Would you like to sample the bin at a cost of $0.01?
                     </span>
                 </p>
-                <div className="flex gap-2 items-center justify-center">
+                <div className="flex gap-2 items-center justify-center mt-3 mb-8">
                     <div
                         className="w-7 h-7 rounded-full bg-[#920000] flex items-center 
                             text-white justify-center font-bold text-xs"
@@ -86,22 +88,9 @@ export default function ValInstructions() {
                         59
                     </div>
                 </div>
-                <p className="max-w-xs mx-auto">
-                    Do you want to sample the bin?
-                </p>
                 <div className="flex gap-2 justify-center">
-                    <Button
-                        variant="alt"
-                        arrow="forward"
-                        text="Yes"
-                        size="extra-small"
-                    />
-                    <Button
-                        variant="alt"
-                        arrow="forward"
-                        text="No"
-                        size="extra-small"
-                    />
+                    <Button variant="alt" text="Yes" size="extra-small" />
+                    <Button variant="alt" text="No" size="extra-small" />
                 </div>
             </div>
             <h3>Playing phase</h3>
@@ -118,6 +107,28 @@ export default function ValInstructions() {
                 gamble, the play-money is kept level and the trial continues.
                 This process will be repeated five times with different prices.
             </p>
+            <div className="text-xs font-light pb-1">
+                Playing phase: example price presentation during playing phase
+            </div>
+            <div
+                className="flex flex-col gap-2 justify-center p-5 border border-slate-200
+			    rounded-lg text-xs text-slate-600 font-light text-center"
+            >
+                <div className="rounded-lg font-bold p-3 bg-green-100 max-w-xs mx-auto">
+                    Your balance: $50
+                </div>
+                <p className="max-w-xs mx-auto">
+                    You are now given the option to pay a price to randomly draw
+                    a ball from the bin, and receive the payoff.
+                </p>
+                <div className="p-2 text-lg w-full font-bold">
+                    Offer price: $28
+                </div>
+                <div className="flex gap-2 justify-center p-5">
+                    <Button variant="alt" text="Accept" size="extra-small" />
+                    <Button variant="alt" text="Reject" size="extra-small" />
+                </div>
+            </div>
             <h3>Bin composition</h3>
             <p>
                 At the end of each trial, we will change the bin in one of two
