@@ -54,6 +54,9 @@ def create_participant(user):
 	participant = {
 			"val_task_completed": False,
 			"wmc_task_completed": False,
+			"val_practice_completed": False,
+			"wmc_practice_completed": False,
+			"results": [],
 			"timestamp": firestore.SERVER_TIMESTAMP,
 		}
 	db.collection("participants").document(user.uid).set(participant)
@@ -103,5 +106,5 @@ initialise_app(
 )
 db = firestore.client()
 batch_register_participants(
-	num_participants=1,
+	num_participants=30,
 )
