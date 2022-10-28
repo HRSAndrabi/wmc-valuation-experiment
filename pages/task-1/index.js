@@ -41,25 +41,27 @@ export default function Task1() {
     };
 
     return (
-        <Container>
-            {taskStatus === 0 ? (
-                <GenericInstructions
-                    session={session}
-                    task={"Task 1"}
-                    handleBeginTask={beginTaskHandler}
-                />
-            ) : taskStatus === 1 ? (
-                <WmcTask
-                    practice={session == "practice" ? true : false}
-                    onTaskComplete={completeTaskHandler}
-                />
-            ) : (
-                <WmcResults
-                    session={session}
-                    results={results}
-                    onResetPractice={resetPracticeHandler}
-                />
-            )}
-        </Container>
+        <div className="min-h-screen flex items-center">
+            <Container>
+                {taskStatus === 0 ? (
+                    <GenericInstructions
+                        session={session}
+                        task={"Task 1"}
+                        handleBeginTask={beginTaskHandler}
+                    />
+                ) : taskStatus === 1 ? (
+                    <WmcTask
+                        practice={session == "practice" ? true : false}
+                        onTaskComplete={completeTaskHandler}
+                    />
+                ) : (
+                    <WmcResults
+                        session={session}
+                        results={results}
+                        onResetPractice={resetPracticeHandler}
+                    />
+                )}
+            </Container>
+        </div>
     );
 }

@@ -43,26 +43,28 @@ export default function Task2() {
     };
 
     return (
-        <Container>
-            {taskStatus === 0 ? (
-                <GenericInstructions
-                    session={session}
-                    task={"Task 2"}
-                    handleBeginTask={beginTaskHandler}
-                />
-            ) : taskStatus === 1 ? (
-                <ValTask
-                    practice={session == "practice" ? true : false}
-                    onTaskComplete={completeTaskHandler}
-                />
-            ) : (
-                <ValResults
-                    session={session}
-                    results={results}
-                    performance={performance}
-                    onResetPractice={resetPracticeHandler}
-                />
-            )}
-        </Container>
+        <div className="min-h-screen flex items-center">
+            <Container>
+                {taskStatus === 0 ? (
+                    <GenericInstructions
+                        session={session}
+                        task={"Task 2"}
+                        handleBeginTask={beginTaskHandler}
+                    />
+                ) : taskStatus === 1 ? (
+                    <ValTask
+                        practice={session == "practice" ? true : false}
+                        onTaskComplete={completeTaskHandler}
+                    />
+                ) : (
+                    <ValResults
+                        session={session}
+                        results={results}
+                        performance={performance}
+                        onResetPractice={resetPracticeHandler}
+                    />
+                )}
+            </Container>
+        </div>
     );
 }
