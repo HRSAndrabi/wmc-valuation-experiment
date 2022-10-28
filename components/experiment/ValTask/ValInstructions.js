@@ -154,7 +154,7 @@ export default function ValInstructions() {
             <p>
                 Your performance will depend on your ability to accept cheap
                 prices to enter the gamble, and reject expensive prices. Your
-                payment for this task will be determined as one-tenth of the
+                payment for this task will be determined as five-percent of the
                 play-money you have remaining at the end of the trial. You will
                 start with $50 in play money, which will increase or decrease
                 depending on your performance throughout the task.

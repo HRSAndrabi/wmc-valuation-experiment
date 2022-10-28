@@ -105,7 +105,7 @@ export default function WmcInstructions() {
             <p>
                 Your performance will depend on the number of pairs you can
                 accurately recall. Your payment for this task will be calculated
-                as your average accuracy across all trials multiplied by $20.
+                as your average accuracy across all trials multiplied by $30.
             </p>
             <h3>Launch task</h3>
             <p>
