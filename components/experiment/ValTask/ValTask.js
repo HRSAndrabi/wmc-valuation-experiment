@@ -162,7 +162,10 @@ export default function ValTask({ practice, onTaskComplete }) {
     const sampleBin = () => {
         const randomDraw = randomBinDraw();
         const newTrials = [...trials];
-        newTrials[currentTrial].samples.push(randomDraw);
+        newTrials[currentTrial].samples = [
+            ...newTrials[currentTrial].samples,
+            randomDraw,
+        ];
         setSample(randomDraw);
         setTrials(newTrials);
         setMoney(Math.round((money - 0.01) * 100) / 100);
