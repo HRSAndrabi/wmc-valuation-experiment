@@ -41,6 +41,7 @@ export default function WmcTask({ practice, onTaskComplete }) {
             };
         });
         setTrials(instantiateTrials);
+        console.log(instantiateTrials);
     }, []);
 
     const shuffle = (array) => {
