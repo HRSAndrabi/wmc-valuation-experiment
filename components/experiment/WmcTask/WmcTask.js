@@ -105,8 +105,12 @@ export default function WmcTask({ practice, onTaskComplete }) {
         setTrialCommenced(false);
         setTrialPhase(0);
         setCurrentQuestion(null);
+        const performance = trials.reduce(
+            (sum, trial) => sum + trial.numCorrect,
+            0
+        );
         if (currentTrial == trials.length - 1) {
-            onTaskComplete(trials);
+            onTaskComplete(trials, performance);
         } else {
             setCurrentTrial(currentTrial + 1);
         }

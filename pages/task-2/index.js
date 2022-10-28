@@ -29,7 +29,13 @@ export default function Task2() {
         setTaskStatus(2);
         setResults(results);
         setPerformance(performance);
-        participant.addResults(auth.user.uid, "val", session, results);
+        participant.addResults(
+            auth.user.uid,
+            "val",
+            session,
+            results,
+            performance
+        );
     };
 
     const resetPracticeHandler = () => {

@@ -24,10 +24,16 @@ export default function Task1() {
         setTaskStatus(1);
     };
 
-    const completeTaskHandler = (results) => {
+    const completeTaskHandler = (results, performance) => {
         setTaskStatus(2);
         setResults(results);
-        participant.addResults(auth.user.uid, "wmc", session, results);
+        participant.addResults(
+            auth.user.uid,
+            "wmc",
+            session,
+            results,
+            performance
+        );
     };
 
     const resetPracticeHandler = () => {
