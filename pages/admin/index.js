@@ -22,9 +22,15 @@ export default function Admin() {
                 <table className="table-auto">
                     <thead>
                         <tr>
-                            <th>uid</th>
-                            <th className="text-right">wmc_task_completed</th>
-                            <th className="text-right">val_task_completed</th>
+                            <th className="px-2">uid</th>
+                            <th className="text-right px-2">
+                                wmc_task_completed
+                            </th>
+                            <th className="text-right px-2">
+                                val_task_completed
+                            </th>
+                            <th className="text-right px-2">wmc_performance</th>
+                            <th className="text-right px-2">val_performance</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,8 +41,10 @@ export default function Admin() {
                                         key={i}
                                         className="hover:bg-slate-50 cursor-pointer"
                                     >
-                                        <td>{participant.id}</td>
-                                        <td className="text-right">
+                                        <td className="px-2">
+                                            {participant.id}
+                                        </td>
+                                        <td className="text-right px-2">
                                             {participant.data
                                                 .wmc_task_completed ? (
                                                 <span className="bg-green-500 rounded-full text-white font-medium py-1 px-2 text-xs">
@@ -48,7 +56,7 @@ export default function Admin() {
                                                 </span>
                                             )}
                                         </td>
-                                        <td className="text-right">
+                                        <td className="text-right px-2">
                                             {participant.data
                                                 .val_task_completed ? (
                                                 <span className="bg-green-500 rounded-full text-white font-medium py-1 px-2 text-xs">
@@ -59,6 +67,36 @@ export default function Admin() {
                                                     false
                                                 </span>
                                             )}
+                                        </td>
+                                        <td className="text-right px-2">
+                                            {!participant.data
+                                                .wmc_task_completed && "-"}
+                                            {participant.data.results
+                                                .filter((result) => {
+                                                    return (
+                                                        result.session ===
+                                                            "formal" &&
+                                                        result.task === "wmc"
+                                                    );
+                                                })
+                                                .map((result) => {
+                                                    return result.performance;
+                                                })}
+                                        </td>
+                                        <td className="text-right px-2">
+                                            {!participant.data
+                                                .val_task_completed && "-"}
+                                            {participant.data.results
+                                                .filter((result) => {
+                                                    return (
+                                                        result.session ===
+                                                            "formal" &&
+                                                        result.task === "val"
+                                                    );
+                                                })
+                                                .map((result) => {
+                                                    return result.performance;
+                                                })}
                                         </td>
                                     </tr>
                                 );
