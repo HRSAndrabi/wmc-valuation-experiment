@@ -58,7 +58,7 @@ export default function Home() {
 
     return (
         <Container>
-            <div className="bg-white rounded-lg px-5 py-10 min-h-[39rem] flex flex-col justify-between">
+            <div className="bg-white rounded-lg px-5 py-10 min-h-[39rem] flex flex-col justify-between max-w-screen-md mx-auto">
                 <div>
                     <div className="flex gap-6 text-xs font-bold mx-auto mb-10 relative w-max">
                         <div className="absolute top-1/2 left-0 right-0 border border-blue-200"></div>
