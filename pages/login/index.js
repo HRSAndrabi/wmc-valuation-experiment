@@ -58,7 +58,7 @@ export default function Login() {
                                             message: "Required field",
                                         },
                                         pattern: {
-                                            value: /(^cbmm-\d+$|^admin$)/,
+                                            value: /(^cbmm-\d+$|cbmm-admin$)/,
                                             message:
                                                 "Username should be of form: cbmm-#",
                                         },
