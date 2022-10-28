@@ -17,7 +17,12 @@ export default function WmcTask({ practice, onTaskComplete }) {
             shuffledLoadings = shuffle(loadings).slice(0, 2);
         } else {
             const loadings = require("./loadings.json");
-            shuffledLoadings = shuffle([...loadings, ...loadings, ...loadings]);
+            shuffledLoadings = shuffle([
+                ...loadings,
+                ...loadings,
+                ...loadings,
+                ...loadings,
+            ]);
         }
         const instantiateTrials = shuffledLoadings.map((loading) => {
             const colours = shuffle(require("./colours.json"));
