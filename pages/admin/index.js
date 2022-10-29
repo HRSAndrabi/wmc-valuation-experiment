@@ -2,7 +2,6 @@ import Layout from "../../components/Layout/Layout";
 import Container from "../../components/Layout/Container";
 import { useParticipant } from "../../lib/firebase/participant";
 import { useState, useEffect } from "react";
-import { data } from "autoprefixer";
 
 export default function Admin() {
     const [allParticipants, setAllParticipants] = useState(null);
@@ -18,11 +17,13 @@ export default function Admin() {
 
     return (
         <Container>
-            <div className="w-full max-w-screen-lg prose mx-auto my-auto bg-white rounded-lg px-5 py-10">
-                <table className="table-auto">
+            <div className="w-full max-w-screen-lg prose mx-auto my-auto bg-white rounded-lg px-5 py-10 overflow-x-scroll">
+                <table className="table-auto text-xs">
                     <thead>
                         <tr>
                             <th className="px-2">uid</th>
+                            <th className="text-right px-2">wmc_practice</th>
+                            <th className="text-right px-2">val_practice</th>
                             <th className="text-right px-2">
                                 wmc_task_completed
                             </th>
@@ -36,6 +37,26 @@ export default function Admin() {
                     <tbody>
                         {allParticipants &&
                             allParticipants.map((participant, i) => {
+                                const wmc_practice_length =
+                                    participant.data.results.filter(
+                                        (result) => {
+                                            return (
+                                                result.session === "practice" &&
+                                                result.task === "wmc"
+                                            );
+                                        }
+                                    ).length;
+
+                                const val_practice_length =
+                                    participant.data.results.filter(
+                                        (result) => {
+                                            return (
+                                                result.session === "practice" &&
+                                                result.task === "val"
+                                            );
+                                        }
+                                    ).length;
+
                                 return (
                                     <tr
                                         key={i}
@@ -43,6 +64,16 @@ export default function Admin() {
                                     >
                                         <td className="px-2">
                                             {participant.id}
+                                        </td>
+                                        <td className="text-right px-2">
+                                            {wmc_practice_length > 0
+                                                ? wmc_practice_length
+                                                : "-"}
+                                        </td>
+                                        <td className="text-right px-2">
+                                            {val_practice_length > 0
+                                                ? val_practice_length
+                                                : "-"}
                                         </td>
                                         <td className="text-right px-2">
                                             {participant.data
