@@ -93,6 +93,10 @@ export default function ValInstructions() {
                     <Button variant="alt" text="No" size="extra-small" />
                 </div>
             </div>
+            <p>
+                It is useful to sample, because this gives you information about
+                how many balls there are of each colour inside the bin.
+            </p>
             <h3>Playing phase</h3>
             <p>
                 The playing period commences when you no longer wish to continue
